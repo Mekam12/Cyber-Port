@@ -5,7 +5,7 @@ error() {
 }
 read -p "Enter your password " password 
 password=$1
-#this is a way of inputing an empty variable in bash
+
 
 if (( ${#password} < 10 )); then
 	error "Too short"
