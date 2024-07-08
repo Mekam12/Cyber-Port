@@ -4,10 +4,10 @@ error() {
 	exit 1
 }
 read -p "Enter your password " password 
-password=$1
 
 
-if (( ${#password} < 10 )); then
+
+if (( ${#password} < 8 )); then
 	error "Too short"
 elif [[ $password != *[[:digit:]]* ]]; then
 	error "Does not contain a digit"
@@ -15,7 +15,8 @@ elif [[ $password != *[[:lower:]]* ]]; then
 	error "Password does not contain a lower case letter"
 elif [[ $password != *[[:upper:]]* ]]; then
 	error "Password does not contain an upper case letter"
-
+elif [[ $password != *[[:special:]]* ]]; then
+	error "Password does not contain a special character"
 
 fi
 
