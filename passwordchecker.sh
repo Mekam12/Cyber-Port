@@ -8,9 +8,9 @@ read -p "Enter your password " password
 
 
 if (( ${#password} < 8 )); then
-	error "Too short"
+	error "Password is too short"
 elif [[ $password != *[[:digit:]]* ]]; then
-	error "Does not contain a digit"
+	error "Password does not contain a digit"
 elif [[ $password != *[[:lower:]]* ]]; then 
 	error "Password does not contain a lower case letter"
 elif [[ $password != *[[:upper:]]* ]]; then
