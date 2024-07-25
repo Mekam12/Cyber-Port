@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+
+
+def dictionary_attack(username, password, dictionary):
+        for user, pwd in dictionary.items():
+                if user == username and pwd == password:
+                        return user, pwd
+        return None, None
+
+def admin_credentials_check(username, password, dictionary,charset,max_length):
+        # Dictionary Attack
+        result_user, result_pwd, = dictionary_attack(username, password, dictionary)
+        if result_user and result_pwd:
+                print(f"Username and Password found using dictionary attack: {result_user}, {result_pwd}")
+        else:
+                print("Username or Password not found using dictionary attack")
+
+username = input("Enter your username\n")
+password = input("Enter your password\n")
+dictionary = {"msfadmin":"msfadmin", "creek":"creek", "richard":"creek", "kali":"kali"}
+charset = "abcdefghijklmnopqrstuvwxyz0123456789@#$!%&*+_?"
+max_length = 6
+
+
+dictionary_attack(username,password,dictionary)
+
+admin_credentials_check(username,password,dictionary,charset,max_length)
